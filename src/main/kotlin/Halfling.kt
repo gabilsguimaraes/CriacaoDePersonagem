@@ -1,6 +1,6 @@
 package org.example
 
-class Halfling : Raca{
+class Halfling : Raca {
     override var forca = 0
     override var destreza = 2
     override var constituicao = 0

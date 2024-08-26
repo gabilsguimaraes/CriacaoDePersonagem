@@ -15,7 +15,6 @@ fun main() {
         }
     }
 
-
     while (raca == null) {
 
         println("ESCOLHA UMA RAÇA: ")
@@ -23,6 +22,11 @@ fun main() {
         println("2 - Elfo")
         println("3 - Halfling")
         println("4 - Humano")
+        println("5 - Draconato")
+        println("6 - Gnomo")
+        println("7 - Meio-elfo")
+        println("8 - Meio-orc")
+        println("9 - Tiefling")
 
         val choice = readLine()?.toIntOrNull()
 
@@ -31,6 +35,11 @@ fun main() {
             2 -> Elfo()
             3 -> Halfling()
             4 -> Humano()
+            5 -> Draconato()
+            6 -> Gnomo()
+            7 -> MeioElfo()
+            8 -> MeioOrc()
+            9 -> Tiefling()
             else -> {
             println("Opção inválida. Por favor, selecione um número da lista")
                 null

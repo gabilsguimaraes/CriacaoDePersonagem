@@ -1,6 +1,6 @@
 package org.example
 
-class Humano : Raca{
+class Humano : Raca {
     override var forca = 1
     override var destreza = 1
     override var constituicao = 1
