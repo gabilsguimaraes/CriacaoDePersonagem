@@ -3,8 +3,18 @@ package org.example
 //TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 fun main() {
+    var nome = ""
     var raca: Raca? = null
     var pontosDisponiveis = 27
+
+    while (nome.isBlank()) {
+        println("Dê um nome ao seu personagem: ")
+        nome = readLine().orEmpty()
+        if (nome.isBlank()) {
+            println("Seu personagem precisa de um nome. Por favor, dê um nome ao seu personagem: ")
+        }
+    }
+
 
     while (raca == null) {
 
@@ -28,7 +38,7 @@ fun main() {
         }
     }
 
-    val personagem = Personagem(raca)
+    val personagem = Personagem(nome = nome, raca = raca)
 
     while (pontosDisponiveis > 0) {
         println("Você tem $pontosDisponiveis pontos para distribuir entre suas habilidades.")
