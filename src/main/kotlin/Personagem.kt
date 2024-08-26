@@ -1,6 +1,7 @@
 package org.example
 
 class Personagem(
+    val nome: String,
     val raca: Raca,
     var forca: Int = 8,
     var destreza: Int = 8,
@@ -32,13 +33,14 @@ class Personagem(
     }
 
     fun mostrarInformacoesPersonagem(){
+        println("Nome: $nome")
         println("Raça: ${raca::class.simpleName}")
         println("Força: $forca (Modificador: ${calcularModificador(forca)})")
         println("Destreza: $destreza (Modificador: ${calcularModificador(destreza)})")
-        println("Constituicao: $constituicao")
-        println("Inteligencia: $inteligencia")
-        println("Sabedoria: $sabedoria")
-        println("Carisma: $carisma")
+        println("Constituicao: $constituicao (Modificador: ${calcularModificador(constituicao)})")
+        println("Inteligencia: $inteligencia (Modificador: ${calcularModificador(inteligencia)})")
+        println("Sabedoria: $sabedoria (Modificador: ${calcularModificador(sabedoria)})")
+        println("Carisma: $carisma (Modificador: ${calcularModificador(carisma)})")
         println("Pontos de Vida: ${calcularPontosDeVida()}")
     }
 }
