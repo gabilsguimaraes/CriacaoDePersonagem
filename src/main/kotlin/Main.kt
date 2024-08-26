@@ -28,7 +28,7 @@ fun main() {
         }
     }
 
-    val personagem = Personagem(raca!!)
+    val personagem = Personagem(raca)
     personagem.mostrarInformacoesPersonagem()
 
     println("Você tem $pontosRestantes pontos para distribuir entre suas habilidades.")
