@@ -4,7 +4,7 @@ package org.example
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 fun main() {
     var raca: Raca? = null
-    var pontosRestantes = 27
+    var pontosDisponiveis = 27
 
     while (raca == null) {
 
@@ -22,19 +22,16 @@ fun main() {
             3 -> Halfling()
             4 -> Humano()
             else -> {
-            println("Opção inválida. Por favor selecione um número da lista")
+            println("Opção inválida. Por favor, selecione um número da lista")
                 null
             }
         }
     }
 
     val personagem = Personagem(raca)
-    personagem.mostrarInformacoesPersonagem()
 
-    println("Você tem $pontosRestantes pontos para distribuir entre suas habilidades.")
-
-    while (pontosRestantes > 0) {
-        println("\nPontos restantes: $pontosRestantes")
+    while (pontosDisponiveis > 0) {
+        println("Você tem $pontosDisponiveis pontos para distribuir entre suas habilidades.")
         println("Escolha uma habilidade para adicionar pontos:")
         println("1 - Força (atual: ${personagem.forca})")
         println("2 - Destreza (atual: ${personagem.destreza})")
@@ -45,12 +42,11 @@ fun main() {
 
         val escolhaHabilidade = readLine()?.toIntOrNull()
 
-
-        println("Quantos pontos deseja adicionar?")
+        println("Quantos pontos deseja adicionar? Se você selecionou a hablilidade errada, escolha 0.")
 
         val pontosAdicionar = readLine()?.toIntOrNull()
 
-        if (pontosAdicionar != null && pontosAdicionar in 1..pontosRestantes) {
+        if (pontosAdicionar != null && pontosAdicionar in 0..pontosDisponiveis) {
             when (escolhaHabilidade) {
                 1 -> personagem.forca += pontosAdicionar
                 2 -> personagem.destreza += pontosAdicionar
@@ -58,11 +54,11 @@ fun main() {
                 4 -> personagem.inteligencia += pontosAdicionar
                 5 -> personagem.sabedoria += pontosAdicionar
                 6 -> personagem.carisma += pontosAdicionar
-                else -> println("Opção inválida. Por favor selecione um número da lista.")
+                else -> println("Opção inválida. Por favor, selecione um número da lista.")
             }
-            pontosRestantes -= pontosAdicionar
+            pontosDisponiveis -= pontosAdicionar
         } else {
-            println("Número de pontos inválido. Por favor, insira um valor entre 1 e $pontosRestantes.")
+            println("Número de pontos inválido. Por favor, insira um valor entre 0 e $pontosDisponiveis.")
         }
     }
 

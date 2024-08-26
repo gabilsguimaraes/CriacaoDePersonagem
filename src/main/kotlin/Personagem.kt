@@ -23,13 +23,22 @@ class Personagem(
         carisma += raca.carisma
     }
 
+    fun calcularModificador(habilidade : Int): Int {
+        return(habilidade - 10) / 2
+    }
+
+    fun calcularPontosDeVida(): Int {
+        return 10 + calcularModificador(constituicao)
+    }
+
     fun mostrarInformacoesPersonagem(){
         println("Raça: ${raca::class.simpleName}")
-        println("Força: $forca")
-        println("Destreza: $destreza")
+        println("Força: $forca (Modificador: ${calcularModificador(forca)})")
+        println("Destreza: $destreza (Modificador: ${calcularModificador(destreza)})")
         println("Constituicao: $constituicao")
         println("Inteligencia: $inteligencia")
         println("Sabedoria: $sabedoria")
         println("Carisma: $carisma")
+        println("Pontos de Vida: ${calcularPontosDeVida()}")
     }
 }
