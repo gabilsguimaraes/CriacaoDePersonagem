@@ -1,4 +1,6 @@
-package org.example
+package org.example.racas
+
+import org.example.Raca
 
 class MeioOrc : Raca {
     override var forca = 2

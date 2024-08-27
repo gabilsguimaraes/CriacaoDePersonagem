@@ -1,6 +1,8 @@
-package org.example
+package org.example.racas
 
-class Elfo : Raca {
+import org.example.Raca
+
+class Halfling : Raca {
     override var forca = 0
     override var destreza = 2
     override var constituicao = 0

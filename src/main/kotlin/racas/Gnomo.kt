@@ -1,4 +1,6 @@
-package org.example
+package org.example.racas
+
+import org.example.Raca
 
 class Gnomo : Raca {
     override var forca = 0

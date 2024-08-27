@@ -1,4 +1,6 @@
-package org.example
+package org.example.racas
+
+import org.example.Raca
 
 class Draconato : Raca {
     override var forca = 2
