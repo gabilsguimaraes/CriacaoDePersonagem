@@ -51,8 +51,18 @@ fun main() {
 
     val personagem = Personagem(nome = nome, raca = raca)
 
+    fun distribuirPontos(habilidade: String, valorAtual: Int, pontosAdicionar: Int): Int {
+        val novoValor = valorAtual + pontosAdicionar
+        return if (novoValor in 8..15) {
+            novoValor
+        } else {
+            println("$habilidade deve ficar entre 8 e 15. Valor atual: $valorAtual")
+            valorAtual
+        }
+    }
+
     while (pontosDisponiveis > 0) {
-        println("Você tem $pontosDisponiveis pontos para distribuir entre suas habilidades.")
+        println("Você tem $pontosDisponiveis pontos para distribuir entre suas habilidades, cada habilidade pode ter entre os valores de 8 a 15.")
         println("Escolha uma habilidade para adicionar pontos:")
         println("1 - Força (atual: ${personagem.forca})")
         println("2 - Destreza (atual: ${personagem.destreza})")
@@ -63,18 +73,18 @@ fun main() {
 
         val escolhaHabilidade = readLine()?.toIntOrNull()
 
-        println("Quantos pontos deseja adicionar? Se você selecionou a hablilidade errada, escolha 0.")
+        println("Quantos pontos deseja adicionar? Se você selecionou a habilidade errada, escolha 0.")
 
         val pontosAdicionar = readLine()?.toIntOrNull()
 
         if (pontosAdicionar != null && pontosAdicionar in 0..pontosDisponiveis) {
             when (escolhaHabilidade) {
-                1 -> personagem.forca += pontosAdicionar
-                2 -> personagem.destreza += pontosAdicionar
-                3 -> personagem.constituicao += pontosAdicionar
-                4 -> personagem.inteligencia += pontosAdicionar
-                5 -> personagem.sabedoria += pontosAdicionar
-                6 -> personagem.carisma += pontosAdicionar
+                1 -> personagem.forca = distribuirPontos("Força", personagem.forca, pontosAdicionar)
+                2 -> personagem.destreza = distribuirPontos("Destreza", personagem.destreza, pontosAdicionar)
+                3 -> personagem.constituicao = distribuirPontos("Constituição", personagem.constituicao, pontosAdicionar)
+                4 -> personagem.inteligencia = distribuirPontos("Inteligência", personagem.inteligencia, pontosAdicionar)
+                5 -> personagem.sabedoria = distribuirPontos("Sabedoria", personagem.sabedoria, pontosAdicionar)
+                6 -> personagem.carisma = distribuirPontos("Carisma", personagem.carisma, pontosAdicionar)
                 else -> println("Opção inválida. Por favor, selecione um número da lista.")
             }
             pontosDisponiveis -= pontosAdicionar
